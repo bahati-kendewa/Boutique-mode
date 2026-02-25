@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
+
+<style>
+body{font-family:Arial;background:#f4f4f4;margin:0;}
+
+header{
+background:#222;color:white;padding:15px;text-align:center;
+}
+
+form{
+background:white;
+padding:20px;
+margin:20px;
+border-radius:8px;
+}
+
+input,textarea{
+width:100%;
+margin:8px 0;
+padding:8px;
+}
+
+button{
+background:#ff9800;
+color:white;
+border:none;
+padding:10px;
+width:100%;
+}
+</style>
+</head>
+
+<body>
+<header>
+<h1>Contact</h1>
+<nav>
+<a href="index.html">Acceuil</a>
+
+</nav>
+</header>
+
+<form onsubmit="envoyer()">
+
+<input type="text" placeholder="Nom" required>
+<input type="email" placeholder="Email" required>
+<textarea placeholder="Message"></textarea>
+
+<button type="submit">Envoyer</button>
+
+</form>
+
+<script>
+function envoyer(){
+alert("Message envoyé !");
+}
+</script>
+
+</body>
+</html>
