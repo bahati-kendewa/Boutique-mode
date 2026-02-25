@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produits</title>
+
+<style>
+body{font-family:Arial;margin:0;background:#f4f4f4;}
+
+header{
+background:#222;color:white;padding:15px;text-align:center;
+}
+
+nav a{color:white;margin:10px;text-decoration:none;}
+
+.produits{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.produit{
+background:white;
+padding:15px;
+border-radius:8px;
+text-align:center;
+box-shadow:0 0 5px gray;
+}
+
+button{
+background:#ff9800;
+border:none;
+padding:8px;
+color:white;
+cursor:pointer;
+border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Nos Produits</h1>
+<nav>
+<a href="index.html">Accueil</a>
+<a href="produits.html">Produits</a>
+<a href="panier.html">Panier</a>
+</nav>
+</header>
+
+<div class="produits">
+
+<div class="produit"><img src="./img1.jpg" >
+<h3>Sac Classique</h3>
+<p>25$</p>
+<button onclick="ajouter('Sac Classique',25)">Ajouter</button>
+</div>
+
+<div class="produit"><img src="./img2.jpg" >
+<h3>Chaussures Sport</h3>
+<p>40$</p>
+<button onclick="ajouter('Chaussures Sport',40)">Ajouter</button>
+</div>
+
+<div class="produit"><img src="./img3.jpg" >
+<h3>T-Shirt Mode</h3>
+<p>15$</p>
+<button onclick="ajouter('T-Shirt Mode',15)">Ajouter</button>
+</div>
+
+<div class="produit"><img src="./img4.jpg" >
+<h3>Veste Chic</h3>
+<p>35$</p>
+<button onclick="ajouter('Veste Chic',35)">Ajouter</button>
+</div>
+
+</div>
+
+<script>
+function ajouter(nom,prix){
+
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
+
+panier.push({nom,prix});
+
+localStorage.setItem("panier",JSON.stringify(panier));
+
+alert("Produit ajouté !");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panier</title>
+
+<style>
+body{font-family:Arial;background:#f4f4f4;margin:0;}
+
+header{
+background:#222;color:white;padding:15px;text-align:center;
+}
+
+table{
+width:90%;
+margin:20px auto;
+background:white;
+border-collapse:collapse;
+}
+
+th,td{
+border:1px solid gray;
+padding:10px;
+text-align:center;
+}
+
+button{
+background:red;
+color:white;
+border:none;
+padding:5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Mon Panier</h1>
+<nav>
+<a href="produits.html">Retour</a>
+
+</nav>
+</header>
+
+<table>
+<tr>
+<th>Produit</th>
+<th>Prix</th>
+<th>Action</th>
+</tr>
+
+<tbody id="liste"></tbody>
+
+</table>
+
+<h3 style="text-align:center">Total : <span id="total">0</span> $</h3>
+
+<script>
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
+let liste = document.getElementById("liste");
+let total = 0;
+
+panier.forEach((p,index)=>{
+
+total += p.prix;
+
+liste.innerHTML += `
+<tr>
+<td>${p.nom}</td>
+<td>${p.prix}$</td>
+<td><button onclick="supprimer(${index})">X</button></td>
+</tr>
+`;
+});
+
+document.getElementById("total").innerText = total;
+
+function supprimer(i){
+
+panier.splice(i,1);
+localStorage.setItem("panier",JSON.stringify(panier));
+location.reload();
+
+}
+</script>
+
+</body>
+</html>
